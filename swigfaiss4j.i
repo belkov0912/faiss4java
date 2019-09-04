@@ -35,12 +35,13 @@
 #endif
 
 // fbode SWIG fails on warnings, so make them non fatal
-#pragma SWIG nowarn=321
-#pragma SWIG nowarn=403
-#pragma SWIG nowarn=325
-#pragma SWIG nowarn=389
-#pragma SWIG nowarn=341
-#pragma SWIG nowarn=512
+//#pragma SWIG nowarn=321
+//#pragma SWIG nowarn=403
+//#pragma SWIG nowarn=325
+//#pragma SWIG nowarn=389
+//#pragma SWIG nowarn=341
+//#pragma SWIG nowarn=512
+
 
 %include <stdint.i>
 typedef int64_t size_t;
