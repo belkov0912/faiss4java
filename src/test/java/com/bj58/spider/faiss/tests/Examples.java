@@ -19,6 +19,7 @@ public class Examples {
         System.out.println(property);
 //        System.loadLibrary("faiss");
         System.loadLibrary("swigfaiss4j");
+        System.out.println("load libswigfaiss4j success");
     }
 
 
@@ -49,16 +50,13 @@ public class Examples {
             log.info("ntotal = {}", index.getNtotal());
 
 
-//            long *I = new long[k * 5];
-//            float *D = new float[k * 5];
             {
                 int k = 4;
-                longArray I = new longArray(k * 5);
-                longlongArray I2 = new longlongArray(k * 5);
+                longlongArray I = new longlongArray(k * 5);
                 floatArray D = new floatArray(k * 5);
 
                 log.info("search 5 first vector of xb");
-                index.search(5, xb.cast(), 4, D.cast(), I2.cast());
+                index.search(5, xb.cast(), 4, D.cast(), I.cast());
                 log.info("Vectors:\n{}", show(xb, nb, d));
                 log.info("Distances:\n{}", show(D, 5, 4));
                 log.info("I:\n{}", show(I, 5, 4));
@@ -135,7 +133,7 @@ public class Examples {
         }
     }
 
-    public void egIndexIVFFlat() {
+    public static void egIndexIVFFlat() {
         try {
             float[][] data = randomData3d(200);
             int dimension = data[0].length;
@@ -201,7 +199,8 @@ public class Examples {
     }
 
     public static void main(String argv[]) {
-        testFlat();
+//        testFlat();
+        egIndexIVFFlat();
     }
 
 }

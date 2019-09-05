@@ -1,9 +1,6 @@
 package com.bj58.spider.faiss4j;
 
-import com.bj58.spider.faiss.floatArray;
-import com.bj58.spider.faiss.intArray;
-import com.bj58.spider.faiss.longArray;
-import com.bj58.spider.faiss.longlongArray;
+import com.bj58.spider.faiss.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,6 +55,18 @@ public class IndexHelper {
         return fa;
     }
 
+    public static doubleArray makeDoubleArray(Double[][] vectors) {
+        int d = vectors[0].length;
+        int nb = vectors.length;
+        doubleArray fa = new doubleArray(d * nb);
+        for (int i = 0; i < nb; i++) {
+            for (int j = 0; j < d; j++) {
+                fa.setitem(d * i + j, vectors[i][j]);
+            }
+        }
+        return fa;
+    }
+
     public static longArray makeLongArray(int[] ints) {
         int len = ints.length;
         longArray la = new longArray(len);
@@ -101,5 +110,23 @@ public class IndexHelper {
             re[i] = c_array.getitem(i);
         }
         return re;
+    }
+
+    public static float[] toFloatArray(double[] arr) {
+        int n = arr.length;
+        float[] ret = new float[n];
+        for (int i = 0; i < n; i++) {
+            ret[i] = (float)arr[i];
+        }
+        return ret;
+    }
+
+    public static float[] toFloatArray(String[] arr) {
+        int n = arr.length;
+        float[] ret = new float[n];
+        for (int i = 0; i < n; i++) {
+            ret[i] = Float.parseFloat(arr[i]);
+        }
+        return ret;
     }
 }

@@ -65,6 +65,7 @@ typedef int64_t size_t;
 #include "VectorTransform.h"
 #include "IndexLSH.h"
 #include "IndexPQ.h"
+
 #include "IndexIVF.h"
 #include "IndexIVFPQ.h"
 #include "IndexIVFFlat.h"
@@ -226,6 +227,10 @@ int get_num_gpus()
 %include "IndexPQ.h"
 
 %include "InvertedLists.h"
+
+%include <swiginterface.i>
+%interface_impl(faiss::Level1Quantizer);
+//%interface_impl(faiss::Index);
 %ignore InvertedListScanner;
 %ignore BinaryInvertedListScanner;
 %include "IndexIVF.h"
