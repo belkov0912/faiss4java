@@ -162,9 +162,12 @@ public class cf_index {
         }
     }
 
-    public static void main(String argv[]) {
-
-        String file_path = "/Users/jiananliu/work/AISEALs/src/faiss_index/data/part-00000";
+    public static void main(String[] argv) {
+        String file_path = "part-00000";
+        if (argv.length > 0) {
+            file_path = argv[0];
+        }
+        logger.info("read file:" + file_path);
 
         float[][] data = fvecs_read(file_path);
         logger.info(String.format("train vecs row:[%d] columns:[%d]", data.length, data[0].length));
