@@ -1,7 +1,6 @@
 package com.bj58.spider.faiss.tests;
 
 import com.bj58.spider.faiss.*;
-import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -144,12 +143,10 @@ public class Examples {
             IndexFlatL2 quantizer = new IndexFlatL2(dimension);
             IndexIVFFlat index = new IndexIVFFlat(quantizer, dimension, nlist, MetricType.METRIC_L2);
 
-            Assert.assertTrue(!index.getIs_trained());
             float[][] trainData = dummyData3d(5);
             floatArray tb = makeFloatArray(trainData);
             log.info("Vectors:\n{}", show(tb, trainData.length, dimension));
             index.train(trainData.length, tb.cast());
-            Assert.assertTrue(index.getIs_trained());
 
             floatArray xb = makeFloatArray(data);
             index.add(numberOfVector, xb.cast());

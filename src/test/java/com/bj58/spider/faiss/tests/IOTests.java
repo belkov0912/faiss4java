@@ -1,7 +1,5 @@
 package com.bj58.spider.faiss.tests;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,7 +8,6 @@ import java.nio.file.Paths;
 public class IOTests {
     private static final Logger log = LoggerFactory.getLogger(IOTests.class);
 
-    @BeforeClass
     public static void load() {
         System.load(Paths.get("./swigfaiss4j.dylib").toAbsolutePath().toString());
         System.loadLibrary("faiss");
@@ -38,7 +35,6 @@ public class IOTests {
         };
     }
 
-    @Test
     public void testIndexWriteAndRead() {
         String filename = "./index-1";
 

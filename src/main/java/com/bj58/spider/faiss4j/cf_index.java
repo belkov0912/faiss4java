@@ -20,6 +20,8 @@ public class cf_index {
     private static final boolean debug_mode = true;
 
     static {
+//        System.loadLibrary("faiss");
+//        logger.info("load libfaiss success");
         System.loadLibrary("swigfaiss4j");
         logger.info("load libswigfaiss4j success");
     }
@@ -136,12 +138,6 @@ public class cf_index {
 
             int nq = i1 - i0;
             float[][] queryConds = Arrays.copyOfRange(data, i0, i1);
-//            for (int i = i0; i < i1; i++) {
-//                queryConds[i-i0] = data[i];
-////                for (int j = 0; j < d; j++) {
-////                    queryConds[(i - i0)][j]  = data[i][j];
-////                }
-//            }
 
             long t3 = System.currentTimeMillis();
             int k = 5;
