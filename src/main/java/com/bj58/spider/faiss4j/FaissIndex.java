@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.lang.Math;
-import java.util.Arrays;
 
 import static com.bj58.spider.faiss4j.IndexHelper.*;
 
@@ -184,7 +183,8 @@ public class FaissIndex {
             int i0 = 1234;
             int i1 = 1245;
 
-            float[][] query = Arrays.copyOfRange(index.tmp_vec, i0, i1);
+//            float[][] query = Arrays.copyOfRange(index.tmp_vec, i0, i1);
+            float[][] query = getLineFromFloatArray(index.xb, i0, i1, index.d);
 
             index.search(query);
         }

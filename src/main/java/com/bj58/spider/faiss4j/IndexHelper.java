@@ -55,17 +55,18 @@ public class IndexHelper {
         return fa;
     }
 
-    public static doubleArray makeDoubleArray(Double[][] vectors) {
-        int d = vectors[0].length;
-        int nb = vectors.length;
-        doubleArray fa = new doubleArray(d * nb);
-        for (int i = 0; i < nb; i++) {
-            for (int j = 0; j < d; j++) {
-                fa.setitem(d * i + j, vectors[i][j]);
+    // 获取floatArray [i0 ~ i1)区间的所有行, 每行的维度是d
+    public static float[][] getLineFromFloatArray(floatArray fa, int i0, int i1, int d) {
+        float[][] rt = new float[i1-i0][d];
+        for (int i=i0; i<i1; i++) {
+            for (int j=0; j<d; j++) {
+                rt[i-i0][j] = fa.getitem(i*d+j);
             }
         }
-        return fa;
+
+        return rt;
     }
+
 
     public static longArray makeLongArray(int[] ints) {
         int len = ints.length;
