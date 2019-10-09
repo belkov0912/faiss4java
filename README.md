@@ -56,7 +56,7 @@ checking for sgemm_ in -lopenblas... yes
 ```
 重新编译faiss源码。
 ### Building faiss4java
-1. 注意faiss4java和faiss同级目录
+1. 注意faiss4java和faiss同级目录，确保swig版本是4.0。
 
 ```
 ➜ git clone https://github.com/belkov0912/faiss4java.git
