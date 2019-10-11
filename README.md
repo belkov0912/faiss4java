@@ -2,14 +2,14 @@
 
 ### Introduction
 
-原始[faiss](https://github.com/facebookresearch/faiss)只支持c++和python，本项目支持最新版本faiss（1.5.3）java接口，主要参考[faiss4j](https://github.com/thenetcircle/faiss4j.git)。
+原始[faiss](https://github.com/facebookresearch/faiss)只支持c++和python，本项目支持v1.5.3版本faiss java接口，主要参考[faiss4j](https://github.com/thenetcircle/faiss4j.git)。
 > 以下过程在Mac Mojave系统下执行
 
 ### Building faiss
 1. 安装faiss源码，参考[官网](https://github.com/facebookresearch/faiss/blob/master/INSTALL.md)
 
 ```
-➜ git clone https://github.com/facebookresearch/faiss.git
+➜ git clone -b v1.5.3 https://github.com/facebookresearch/faiss.git
 ➜ cd faiss
 ➜ ./configure --without-cuda   #注意1
 ➜ make all && make install
